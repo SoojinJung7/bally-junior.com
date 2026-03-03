@@ -68,13 +68,24 @@
       background: #f0f0f0;
       transform: translateY(-2px);
     }
+
+    .btn-grid {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn-grid .back-btn {
+      flex: 1;
+      margin: 0;
+    }
   </style>
 </head>
 
 <body>
 
   <div class="card">
-    <h1>💎발리 유소년 신학기 모집!💎</h1>
+    <h1>🌱신학기 모집 스케줄🌱</h1>
     <div class="subtitle">성장기 유소년을 위한 맞춤 체육 프로그램</div>
 
     <img
@@ -83,7 +94,20 @@
       class="promo-img"
     />
 
-    <a href="index.html" class="back-btn">
+    <div class="btn-grid">
+      <a href="sports/soccer.html" class="back-btn">⚽️ 축구</a>
+      <a href="sports/basketball.html" class="back-btn">🏀 농구</a>
+    </div>
+    <div class="btn-grid">
+      <a href="sports/soccer.html" class="back-btn">🏸 배드민턴</a>
+      <a href="sports/soccer.html" class="back-btn">🛼 인라인</a>
+    </div>
+    <div class="btn-grid">
+      <a href="sports/soccer.html" class="back-btn">💪 생활체육</a>
+      <a href="sports/pilates.html" class="back-btn">🧘🏻‍♀️ 필라테스</a>
+    </div>
+
+    <a href="index.html" class="back-btn" style="margin-top: 6px;">
       홈으로 돌아가기
     </a>
   </div>
