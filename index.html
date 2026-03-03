@@ -100,10 +100,18 @@
   display: inline-block;
   padding: 10px 16px;
   font-size: 14px;
+  font-weight: 600;
   border-radius: 14px;
-  background: rgba(255,255,255,0.6);
-  color: #444;
+  background: rgba(227, 97, 76, 0.85);
+  color: #fff;
   text-decoration: none;
+  box-shadow: 0 2px 8px rgba(227, 97, 76, 0.3);
+  transition: all 0.2s ease;
+}
+
+.sub-action a:hover {
+  background: rgba(227, 97, 76, 1);
+  transform: translateY(-1px);
 }
 
 .floating-call {
@@ -146,7 +154,7 @@
     <button class="link-button" onclick="location.href='sports/basketball.html'">농구</button>
     <button class="link-button" onclick="location.href='sports/soccer.html'">축구</button>
     <button class="link-button" onclick="location.href='sports/pilates.html'">필라테스</button>
-    <button class="link-button" onclick="location.href='sports/dance.html'">🎀방송댄스</button>
+    <button class="link-button" onclick="alert('4월 개강 예정!')">🎀방송댄스</button>
     <button class="link-button" onclick="alert('준비 중입니다!')">배드민턴</button>
     <button class="link-button" onclick="alert('준비 중입니다!')">인라인</button>
     <button class="link-button" onclick="alert('준비 중입니다!')">생활체육</button>
