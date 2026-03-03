@@ -73,8 +73,8 @@
   margin-top:8px;
 }
 
-/* 하단 홈으로 돌아가기 버튼 */
-.back-home {
+/* 하단 버튼 래퍼 */
+.back-home-wrap {
   position: fixed;
   bottom: 20px;
   left: 50%;
@@ -82,9 +82,12 @@
   width: calc(100% - 48px);
   max-width: 420px;
   z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.back-home a {
+.back-home-wrap a {
   display: block;
   text-align: center;
   padding: 14px 0;
@@ -96,6 +99,6 @@
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-.back-home a:active {
+.back-home-wrap a:active {
   transform: scale(0.98);
 }
