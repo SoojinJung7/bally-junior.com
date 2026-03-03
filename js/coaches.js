@@ -12,7 +12,9 @@ function openContact(){
 
 function showSuccess(){
   const msg=document.getElementById("success-msg");
+  const btn=document.getElementById("submit-btn");
   if(msg) msg.style.display="block";
+  if(btn){ btn.disabled=true; btn.innerText="전송 완료 ✓"; }
 }
 
 function openImage(src){

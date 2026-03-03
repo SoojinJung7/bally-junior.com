@@ -549,7 +549,7 @@
 
   <!-- 사용자 입력 -->
   <input type="text" name="entry.1564976340" placeholder="이름" required>
-  <input type="tel"  name="entry.86880590"  placeholder="연락처" required>
+  <input type="tel"  name="entry.86880590"  placeholder="연락처" pattern="[0-9\-]{10,13}" required>
   <textarea name="entry.630766365" rows="4" placeholder="문의사항" required></textarea>
 
 <button id="submit-btn" class="contact-submit" type="submit">
@@ -617,55 +617,7 @@ function submitToMultipleForms(event) {
 
 
 </section>
-<script>
-function toggleCareer(card){
-  card.classList.toggle("open");
-}
-
-function openContact(){
-  const section = document.getElementById("contact");
-  const content = document.querySelector(".content");
-
-  if(!section || !content) return;
-
-  section.classList.add("open");
-
-  /* 위 흰 영역 하단 매끄럽게 */
-  content.style.borderRadius = "28px 28px 0 0";
-
-  /* 상담 영역으로 스크롤만 이동 */
-  section.scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
-}
-
-function showSuccess(){
-  const msg = document.getElementById("success-msg");
-  const btn = document.getElementById("submit-btn");
-
-  if(msg){
-    msg.style.display = "block";
-  }
-  if(btn){
-    btn.disabled = true;
-    btn.innerText = "전송 완료 ✓";
-  }
-}
-
-function openImage(src){
-  const viewer = document.getElementById("imageViewer");
-  const img = document.getElementById("viewerImg");
-
-  img.src = src;
-  viewer.style.display = "flex";
-}
-
-function closeImage(){
-  const viewer = document.getElementById("imageViewer");
-  viewer.style.display = "none";
-}
-</script>
+<script src="../js/coaches.js"></script>
 
 
 <!-- 🔍 이미지 확대 뷰어 -->

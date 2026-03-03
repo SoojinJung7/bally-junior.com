@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <!-- 공통 CSS -->
-  <link rel="stylesheet" href="../css/coaches.css">
+  <link rel="stylesheet" href="../css/coaches.css?v=20260303">
 
 </head>
 
@@ -139,7 +139,7 @@
       <input type="hidden" name="entry.1115432762" value="농구">
 
       <input type="text" name="entry.1564976340" placeholder="이름" required>
-      <input type="tel" name="entry.86880590" placeholder="연락처" required>
+      <input type="tel" name="entry.86880590" placeholder="연락처" pattern="[0-9\-]{10,13}" required>
       <textarea name="entry.630766365" rows="4" placeholder="문의사항" required></textarea>
 
       <button id="submit-btn" class="contact-submit">📧 보내기</button>
