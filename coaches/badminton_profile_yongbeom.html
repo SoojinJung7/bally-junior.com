@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>최용범 | 발리 유소년 배드민턴</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- 공통 CSS -->
+  <link rel="stylesheet" href="../css/coaches.css?v=20260303">
+
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+<section class="hero"
+  style="background:url('../images/coaches/yongbeom/yongbeom.jpg') center / cover no-repeat;">
+  <div class="hero-content">
+    <h1>최용범 YONGBEOM</h1>
+    <div class="role">Junior Badminton Specialist</div>
+<!-- ================= HERO 하단 박스 3개 커스터마이징 가능 ================= -->
+    <div class="stats">
+      <div class="stat"><strong>유아</strong><span>클래스 전문</span></div>
+      <div class="stat"><strong>눈높이</strong><span>교육 중심</span></div>
+      <div class="stat"><strong>배드민턴</strong><span>팀워크</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTENT ================= -->
+<main class="content">
+
+<section class="section">
+  <div class="section-title">코치 소개</div>
+
+  <div class="story">
+
+    <!-- 대표 이력 -->
+    <div class="story-card toggle-card career-card" onclick="toggleCareer(this)">
+      <div class="toggle-header">
+        <span>코치 대표 이력</span>
+        <span class="toggle-icon">▾</span>
+      </div>
+
+      <div class="career-preview">
+        유소년축구지도자 자격증 보유<br/>대한축구협회 고등주말리그 권역 우승(2회)<br/>
+      </div>
+
+      <div class="career-full">
+          <ul class="career-list">
+            <li style="display: flex; align-items: flex-start;"><span class="career-label" style="margin-right: 4px;">자격</span><span>아동심리상담사 1급<br/>방과후학교지도자 1급<br/>아동발달전문지도자 자격증 보유<br/>응급처치강사 자격증</span></li>
+            <li style="display: flex; align-items: flex-start;"><span class="career-label" style="margin-right: 4px;">수상</span><span>제 22회 백록기 전국 고등축구대회 우승 외 다수</span></li>
+          </ul>
+        </div>
+       </div>
+
+    <div class="story-card">
+     <strong>WHO I TEACH</strong>
+      <p class="story-text">
+        초등 · 중등 유소년<br/>입문부터 팀 훈련까지
+      </p>
+    </div>
+
+
+    <div class="story-card">
+     <strong>HOW I TEACH</strong>
+      <p class="story-text">
+        안전 · 기본기 · 성장 중심<br/>
+        결과보다 과정을 중시합니다.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+</section>
+  <section class="section">
+  <div class="section-title">개설 가능한 수업</div>
+
+  <!-- [EDIT] 수업 카드 복붙 -->
+  <div class="class-card">
+    <span>기초반 · 4주과정</span>
+    <strong>100,000원</strong>
+  </div>
+
+  <div class="class-card">
+    <span>스킬반 · 4주과정</span>
+    <strong>120,000원</strong>
+  </div>
+
+  <div class="class-card">
+    <span>대표팀 · 8주과정</span>
+    <strong>230,000원</strong>
+  </div>
+</section>
+
+<section class="section sketch">
+  <div class="section-title">레슨 스케치</div>
+
+  <div class="sketch-grid">
+    <img src="../images/coaches/yongbeom/yongbeom3.jpg" onclick="openImage(this.src)">
+    <img src="../images/coaches/yongbeom/yongbeom6.png" onclick="openImage(this.src)">
+    <video src="../images/coaches/yongbeom/yongbeom.mp4" controls playsinline></video>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact-section">
+  <div class="contact-panel">
+
+    <a href="tel:031-728-7778" class="call-btn">📞 바로 전화하기</a>
+
+    <h3 class="contact-title">상담 문의</h3>
+    <p class="contact-sub">수업 일정 · 대상 · 레벨 상담</p>
+
+    <form class="contact-form" id="contactForm" onsubmit="submitToMultipleForms(event)">
+
+      <!-- 강사 식별 -->
+      <input type="hidden" name="entry.1676847878" value="최용범">
+      <input type="hidden" name="entry.1115432762" value="배드민턴">
+
+      <input type="text" name="entry.1564976340" placeholder="이름" required>
+      <input type="tel" name="entry.86880590" placeholder="연락처" pattern="[0-9\-]{10,13}" required>
+      <textarea name="entry.630766365" rows="4" placeholder="문의사항" required></textarea>
+
+      <button id="submit-btn" class="contact-submit">📧 보내기</button>
+    </form>
+
+    <script>
+    function submitToMultipleForms(event) {
+      event.preventDefault();
+
+      const form = document.getElementById('contactForm');
+      const formData = new FormData(form);
+
+      // Individual instructor form
+      const instructorFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSeth1a7cy16_9lRyaIvVr292OFZ5pvbUz8QEjpZMteYqAAHVQ/formResponse';
+
+      // Master form
+      const masterFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdFI0cYXaQKpgs6qh70bg9hGMmasDliTUOSX3Zs-xBKle8MsA/formResponse';
+
+      // Submit to both forms
+      fetch(instructorFormUrl, { method: 'POST', body: formData, mode: 'no-cors' });
+      fetch(masterFormUrl, { method: 'POST', body: formData, mode: 'no-cors' });
+
+      showSuccess();
+      return false;
+    }
+    </script>
+
+    <p id="success-msg" class="success-msg">  문의가 정상적으로 접수되었습니다!<br/>빠르게 연락드릴게요 😊</p>
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+  </div>
+
+  <div class="cta">
+    <button class="cta-primary cta-highlight" onclick="openContact()">⭐상담 문의하기</button>
+    <button class="cta-primary" onclick="location.href='../coach_list/badminton_coach_list.html'">다른 강사 보러가기</button>
+    <button class="cta-primary" onclick="location.href='../promotion.html'">신학기 모집/스케줄</button>
+    <button class="cta-primary" onclick="location.href='../index.html'">홈으로 가기</button>
+
+  </div>
+</section>
+
+<!-- 이미지 확대 -->
+<div id="imageViewer" class="image-viewer" onclick="closeImage()">
+  <img id="viewerImg">
+</div>
+
+<!-- 공통 JS -->
+<script src="../js/coaches.js"></script>
+
+</body>
+</html>
