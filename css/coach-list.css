@@ -42,10 +42,11 @@
 }
 
 .profile-img{
-  width:81px;
-  height:81px;
+  width:54px;
+  height:54px;
   border-radius:50%;
   object-fit:cover;
+  object-position:center 15%;
   background:#eee;
   flex-shrink:0;
 }

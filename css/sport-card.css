@@ -32,11 +32,16 @@
   margin-bottom:10px;
 }
 
+.coach-avatars{
+  overflow:hidden;
+}
+
 .coach-avatars img{
-  width:54px;
-  height:54px;
+  width:36px;
+  height:36px;
   border-radius:50%;
   object-fit:cover;
+  object-position:center 15%;
   border:2px solid #fff;
   margin-left:-8px;
 }
