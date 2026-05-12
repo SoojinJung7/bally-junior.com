@@ -198,6 +198,13 @@
       if (!name) { alert('성함을 입력해주세요.'); return; }
       if (!phone) { alert('연락처를 입력해주세요.'); return; }
 
+      var phoneDigits = phone.replace(/[^0-9]/g, '');
+      if (!/^01\d{8,9}$/.test(phoneDigits)) {
+        alert('연락처를 010-1234-5678 형식으로 입력해주세요.');
+        document.getElementById('phone').focus();
+        return;
+      }
+
       var btn = document.getElementById('submitBtn');
       btn.disabled = true;
       btn.textContent = '전송 중...';
