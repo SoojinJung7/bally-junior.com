@@ -143,9 +143,26 @@
       // Master form
       const masterFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdFI0cYXaQKpgs6qh70bg9hGMmasDliTUOSX3Zs-xBKle8MsA/formResponse';
 
-      // Submit to both forms
+      // Telegram notification webhook
+      const telegramWebhookUrl = 'https://script.google.com/macros/s/AKfycbyMxBMqnIbG1QDkFmJAS_nKsXHTj1PAWL6cJqK75J-k8IP2klSGBQwPliNUWE47eTRcRg/exec';
+
+      // Submit to forms
       fetch(instructorFormUrl, { method: 'POST', body: formData, mode: 'no-cors' });
       fetch(masterFormUrl, { method: 'POST', body: formData, mode: 'no-cors' });
+
+      // Send Telegram notification
+      fetch(telegramWebhookUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          sport: form.elements['entry.1115432762'].value,
+          coach: form.elements['entry.1676847878'].value,
+          name: form.elements['entry.1564976340'].value,
+          phone: form.elements['entry.86880590'].value,
+          message: form.elements['entry.630766365'].value
+        })
+      });
 
       showSuccess();
       return false;
