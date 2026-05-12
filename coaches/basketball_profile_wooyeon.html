@@ -515,6 +515,15 @@ function submitToMultipleForms(event) {
   const form = document.getElementById('contactForm');
   const formData = new FormData(form);
 
+  // 연락처 형식 검증
+  var phoneInput = form.elements['entry.86880590'];
+  var phoneDigits = phoneInput.value.replace(/[^0-9]/g, '');
+  if (!/^01\d{8,9}$/.test(phoneDigits)) {
+    alert('연락처를 010-1234-5678 형식으로 입력해주세요.');
+    phoneInput.focus();
+    return false;
+  }
+
   // Individual instructor form (농구 공용)
   const instructorFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSd1AS73f4Tat0MU8MmpQSHth8lktdOSC4VyMwUgsPJQBRyfQA/formResponse';
 

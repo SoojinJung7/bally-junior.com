@@ -126,6 +126,15 @@
       const form = document.getElementById('contactForm');
       const formData = new FormData(form);
 
+      // 연락처 형식 검증
+      var phoneInput = form.elements['entry.86880590'];
+      var phoneDigits = phoneInput.value.replace(/[^0-9]/g, '');
+      if (!/^01\d{8,9}$/.test(phoneDigits)) {
+        alert('연락처를 010-1234-5678 형식으로 입력해주세요.');
+        phoneInput.focus();
+        return false;
+      }
+
       const instructorFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe93szPjP5syUgTDnkF3GszyzVZYi5KPV4B2mNXa26LXVW8pw/formResponse';
       const masterFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdFI0cYXaQKpgs6qh70bg9hGMmasDliTUOSX3Zs-xBKle8MsA/formResponse';
 
