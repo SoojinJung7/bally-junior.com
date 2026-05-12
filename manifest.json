@@ -1,0 +1,26 @@
+{
+  "name": "발리유소년 스포츠클럽",
+  "short_name": "발리유소년",
+  "description": "성장기 유소년을 위한 맞춤 체육 프로그램",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F9D976",
+  "theme_color": "#E3614C",
+  "orientation": "portrait",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "/images/bally-youth.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/bally-youth.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

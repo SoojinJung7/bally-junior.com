@@ -6,6 +6,15 @@
   <title>발리 유소년 신학기</title>
   <link rel="icon" href="images/favicon.ico">
 
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#E3614C">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="발리유소년">
+  <link rel="apple-touch-icon" href="/images/bally-youth.png">
+
 
   <style>
     * {
@@ -195,6 +204,16 @@
   <a href="tel:0317287778" class="floating-call">
   📞 바로 상담하기
 </a>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js').catch(function(err) {
+        console.error('SW registration failed:', err);
+      });
+    });
+  }
+</script>
 
 </body>
 </html>
