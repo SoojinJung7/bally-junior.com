@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>문의 접수 완료 | 발리유소년</title>
+  <link rel="icon" href="images/favicon.ico">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Arial', sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #F9D976, #F39F86, #B17DC5);
+      padding: 30px 15px;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background-color: rgba(255, 255, 255, 0.96);
+      border-radius: 20px;
+      padding: 40px 28px 32px;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    .icon {
+      font-size: 60px;
+      margin-bottom: 14px;
+    }
+    h1 {
+      font-size: 22px;
+      margin-bottom: 18px;
+      color: #333;
+    }
+    .message {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .message strong {
+      color: #c44520;
+    }
+    .home-btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      background: #fff;
+      border: 1.5px solid #ddd;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #333;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .home-btn:hover {
+      background: #f5f5f5;
+      border-color: #bbb;
+    }
+    .countdown {
+      margin-top: 14px;
+      font-size: 12px;
+      color: #999;
+    }
+    .countdown #seconds {
+      font-weight: 700;
+      color: #c44520;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">📨</div>
+    <h1>문의가 보내졌습니다!</h1>
+    <p class="message">
+      확인하는대로 빠른 안내 드리겠습니다 😊<br>
+      추가 궁금점은 <strong>031-728-7778~9</strong>로 연락 주세요.
+    </p>
+    <a href="index.html" class="home-btn">홈으로 돌아가기</a>
+    <div class="countdown"><span id="seconds">10</span>초 후 자동으로 홈으로 이동합니다</div>
+  </div>
+
+  <script>
+    var s = 10;
+    var el = document.getElementById('seconds');
+    var t = setInterval(function() {
+      s--;
+      if (el) el.textContent = s;
+      if (s <= 0) {
+        clearInterval(t);
+        location.href = 'index.html';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>빠른 상담 문의 | 발리유소년</title>
+  <link rel="icon" href="images/favicon.ico">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Arial', sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #F9D976, #F39F86, #B17DC5);
+      padding: 24px 15px;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .container {
+      background-color: rgba(255, 255, 255, 0.96);
+      border-radius: 20px;
+      padding: 26px 20px 24px;
+      max-width: 440px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      font-size: 22px;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      font-size: 13px;
+      color: #777;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin: 18px 0 10px 2px;
+      color: #333;
+    }
+    .section-title .hint {
+      font-size: 12px;
+      font-weight: 400;
+      color: #999;
+      margin-left: 4px;
+    }
+    .chip-group {
+      background: #f5f5f5;
+      border-radius: 14px;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .chip {
+      background: #ffffff;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      padding: 13px 10px;
+      font-size: 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      user-select: none;
+    }
+    .chip.span-full { grid-column: span 2; }
+    .chip:hover { background: #fafafa; }
+    .chip.active {
+      background: #fff5e6;
+      border-color: rgba(227, 97, 76, 0.85);
+      color: #c44520;
+      font-weight: 600;
+    }
+    .input-group {
+      margin-top: 16px;
+    }
+    .input-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #444;
+      margin-left: 2px;
+    }
+    .input-field {
+      width: 100%;
+      padding: 13px 14px;
+      font-size: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #f5f5f5;
+      outline: none;
+      transition: box-shadow 0.15s ease;
+      font-family: inherit;
+    }
+    .input-field:focus {
+      box-shadow: 0 0 0 2px rgba(227, 97, 76, 0.4);
+      background: #fafafa;
+    }
+    .submit-btn {
+      width: 100%;
+      margin-top: 22px;
+      padding: 15px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      background: rgba(227, 97, 76, 0.95);
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(227, 97, 76, 0.3);
+      font-family: inherit;
+    }
+    .submit-btn:hover:not(:disabled) {
+      background: rgba(227, 97, 76, 1);
+      transform: translateY(-1px);
+    }
+    .submit-btn:disabled {
+      background: #b0b0b0;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 14px;
+      font-size: 13px;
+      color: #888;
+      text-decoration: none;
+    }
+    .back-link:hover { color: #555; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💬 빠른 상담 문의</h1>
+    <div class="subtitle">간단히 알려주시면 빠르게 안내드려요</div>
+
+    <div class="section-title">문의 종목 <span class="hint">(여러 개 선택 가능)</span></div>
+    <div class="chip-group" id="sportGroup">
+      <div class="chip" data-value="농구">🏀 농구</div>
+      <div class="chip" data-value="축구">⚽ 축구</div>
+      <div class="chip" data-value="필라테스">🧘‍♀️ 필라테스</div>
+      <div class="chip" data-value="방송댄스">💃 방송댄스</div>
+      <div class="chip" data-value="배드민턴">🏸 배드민턴</div>
+      <div class="chip" data-value="인라인">🛼 인라인</div>
+      <div class="chip span-full" data-value="생활체육">💪 생활체육</div>
+    </div>
+
+    <div class="section-title">문의 내용 <span class="hint">(여러 개 선택 가능)</span></div>
+    <div class="chip-group" id="topicGroup">
+      <div class="chip" data-value="가격 궁금해요">가격 궁금해요</div>
+      <div class="chip" data-value="스케줄 궁금해요">스케줄 궁금해요</div>
+      <div class="chip span-full" data-value="전반적인 상담 원해요">전반적인 상담 원해요</div>
+    </div>
+
+    <div class="input-group">
+      <label class="input-label" for="name">학부모님 성함</label>
+      <input class="input-field" id="name" type="text" placeholder="홍길동" required>
+    </div>
+
+    <div class="input-group">
+      <label class="input-label" for="phone">연락처</label>
+      <input class="input-field" id="phone" type="tel" placeholder="010-1234-5678" pattern="[0-9\-]{10,13}" required>
+    </div>
+
+    <button class="submit-btn" id="submitBtn" type="button">문의 보내기</button>
+    <a href="index.html" class="back-link">← 홈으로 돌아가기</a>
+  </div>
+
+  <script>
+    document.querySelectorAll('.chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        chip.classList.toggle('active');
+      });
+    });
+
+    var TELEGRAM_WEBHOOK = 'https://script.google.com/macros/s/AKfycbyMxBMqnIbG1QDkFmJAS_nKsXHTj1PAWL6cJqK75J-k8IP2klSGBQwPliNUWE47eTRcRg/exec';
+
+    document.getElementById('submitBtn').addEventListener('click', function() {
+      var sports = Array.prototype.slice.call(
+        document.querySelectorAll('#sportGroup .chip.active')
+      ).map(function(c) { return c.dataset.value; });
+      var topics = Array.prototype.slice.call(
+        document.querySelectorAll('#topicGroup .chip.active')
+      ).map(function(c) { return c.dataset.value; });
+      var name = document.getElementById('name').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+
+      if (!sports.length) { alert('문의 종목을 1개 이상 선택해주세요.'); return; }
+      if (!topics.length) { alert('문의 내용을 1개 이상 선택해주세요.'); return; }
+      if (!name) { alert('성함을 입력해주세요.'); return; }
+      if (!phone) { alert('연락처를 입력해주세요.'); return; }
+
+      var btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = '전송 중...';
+
+      fetch(TELEGRAM_WEBHOOK, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          source: 'quick',
+          sports: sports,
+          topics: topics,
+          name: name,
+          phone: phone
+        })
+      });
+
+      setTimeout(function() {
+        location.href = 'inquiry_sent.html';
+      }, 600);
+    });
+  </script>
+</body>
+</html>
