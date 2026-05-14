@@ -2,202 +2,82 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>농구 강사 프로필 | 발리 유소년</title>
+  <title>강사 프로필 | 발리 유소년 농구</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
-      background: linear-gradient(135deg, #f7b37c, #e9a1b3);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 24px;
-    }
-
-    .card {
-      width: 100%;
-      max-width: 420px;
-      background: #fffaf6;
-      border-radius: 28px;
-      padding: 28px 22px 26px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-      text-align: center;
-    }
-
-    .title {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 22px;
-      color: #2b2b2b;
-    }
-
-    .profile-list {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      margin-bottom: 22px;
-    }
-
-    .profile-card {
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 18px 16px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .profile-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
-    }
-
-    .profile-img {
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      object-fit: cover;
-      background: #eee;
-      flex-shrink: 0;
-    }
-
-    .profile-text {
-      text-align: left;
-    }
-
-    .name {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 4px;
-      color: #1f1f1f;
-    }
-
-    .desc {
-      font-size: 13px;
-      color: #666;
-      line-height: 1.4;
-    }
-
-    .footer-text {
-      font-size: 13px;
-      color: #5a4a3c;
-      margin-top: 8px;
-    }
-
-    /* 하단 홈으로 돌아가기 버튼 */
-.back-home {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 48px);
-  max-width: 420px;
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.back-home a {
-  display: block;
-  text-align: center;
-  padding: 14px 0;
-  border-radius: 14px;
-  background: #ffffff;
-  color: #333;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.back-home a:active {
-  transform: scale(0.98);
-}
-  </style>
+  <link rel="stylesheet" href="../css/common.css?v=20260303">
+  <link rel="stylesheet" href="../css/coach-list.css?v=20260515">
 </head>
 
 <body>
-  <div class="card">
-    <div class="title">강사 프로필 보기</div>
 
-    <div class="profile-list">
+<div class="card">
+  <div class="title">강사 프로필 보기</div>
 
-      <!-- ✅ 이헌 감독 -->
-      <div class="profile-card" onclick="location.href='../coaches/basketball_profile_leehun.html'">
-        <img class="profile-img" src="../images/coaches/leehun/lee_1.png" alt="이헌" />
-        <div class="profile-text">
-          <div class="name">이헌</div>
-          <div class="desc">
-            前 인천 전자랜드 프로선수<br/>
-            국제학교 팀수업, 대표팀 전문<br/>
-            팀워크·기초체력 중심 지도
-          </div>
+  <div class="profile-list">
+
+    <!-- ✅ 이헌 감독 -->
+    <div class="profile-card" onclick="location.href='../coaches/basketball_profile_leehun.html'">
+      <img class="profile-img" src="../images/coaches/leehun/lee_1.png" alt="이헌" />
+      <div class="profile-text">
+        <div class="name">이헌</div>
+        <div class="desc">
+          前 인천 전자랜드 프로선수<br/>
+          국제학교 팀수업, 대표팀 전문<br/>
+          팀워크·기초체력 중심 지도
         </div>
       </div>
-
-      <!-- 최우연 강사 -->
-      <div class="profile-card" onclick="location.href='../coaches/basketball_profile_wooyeon.html'">
-        <img class="profile-img" src="../images/coaches/wooyeon/wooyeon_thumb.png" alt="최우연" />
-        <div class="profile-text">
-          <div class="name">최우연</div>
-          <div class="desc">
-            前 인천 전자랜드 프로선수<br/>
-            수준별 맞춤 레슨
-          </div>
-        </div>
-      </div>
-
-      <!-- 이다헌 강사 -->
-      <div class="profile-card" onclick="location.href='../coaches/basketball_profile_dahun.html'">
-        <img class="profile-img" src="../images/coaches/dahun/dahun_1.png" alt="이다헌" />
-        <div class="profile-text">
-          <div class="name">이다헌</div>
-          <div class="desc">
-            학교체육·클럽 지도 경험<br/>
-            즐거운 농구 수업
-          </div>
-        </div>
-      </div>
-
-      <!-- ✅ 최주영 강사 -->
-      <div class="profile-card" onclick="location.href='../coaches/basketball_profile_jooyoung.html'">
-        <img class="profile-img" src="../images/coaches/jooyoung/jooyoung_thumb.png" alt="최주영" />
-        <div class="profile-text">
-          <div class="name">최주영</div>
-          <div class="desc">
-            前 대구 한국가스공사 페가수스 프로<br/>
-            前 상무 농구단 출신<br/>
-            기본기·성장 중심 지도
-          </div>
-        </div>
-      </div>
-
     </div>
 
-    <div class="footer-text">
-      팀워크, 키성장에 도움되는 Basketball!!
+    <!-- 최우연 강사 -->
+    <div class="profile-card" onclick="location.href='../coaches/basketball_profile_wooyeon.html'">
+      <img class="profile-img" src="../images/coaches/wooyeon/wooyeon_thumb.png" alt="최우연" />
+      <div class="profile-text">
+        <div class="name">최우연</div>
+        <div class="desc">
+          前 인천 전자랜드 프로선수<br/>
+          수준별 맞춤 레슨
+        </div>
+      </div>
     </div>
+
+    <!-- 이다헌 강사 -->
+    <div class="profile-card" onclick="location.href='../coaches/basketball_profile_dahun.html'">
+      <img class="profile-img" src="../images/coaches/dahun/dahun_1.png" alt="이다헌" />
+      <div class="profile-text">
+        <div class="name">이다헌</div>
+        <div class="desc">
+          학교체육·클럽 지도 경험<br/>
+          즐거운 농구 수업
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ 최주영 강사 -->
+    <div class="profile-card" onclick="location.href='../coaches/basketball_profile_jooyoung.html'">
+      <img class="profile-img" src="../images/coaches/jooyoung/jooyoung_thumb.png" alt="최주영" />
+      <div class="profile-text">
+        <div class="name">최주영</div>
+        <div class="desc">
+          前 대구 한국가스공사 페가수스 프로<br/>
+          前 상무 농구단 출신<br/>
+          기본기·성장 중심 지도
+        </div>
+      </div>
+    </div>
+
   </div>
 
-<script>
-  function comingSoon() {
-    alert("준비 중입니다 😊");
-  }
-</script>
+  <div class="footer-text">
+    팀워크, 키성장에 도움되는 Basketball!!
+  </div>
+</div>
 
+<div style="height:130px;"></div>
 <div class="back-home">
   <a href="../promotion.html">신학기 모집/스케줄</a>
   <a href="../index.html">홈으로 돌아가기</a>
 </div>
+
 </body>
 </html>
