@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>최주영 강사 | 발리 유소년 농구</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
+      background: #0e0e12;
+      color: #111;
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+      position: relative;
+      height: 85vh;
+      max-height: 760px;
+      background: url("../images/coaches/jooyoung/jooyoung_hero.png") center / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(10,10,14,0.2) 0%,
+        rgba(10,10,14,0.85) 70%,
+        #0e0e12 100%
+      );
+    }
+
+    .hero-content {
+      position: absolute;
+      bottom: 36px;
+      left: 20px;
+      right: 20px;
+      max-width: 420px;
+      margin: auto;
+      color: #fff;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 800;
+      margin: 0 0 6px;
+    }
+
+    .hero .role {
+      font-size: 15px;
+      opacity: 0.9;
+      margin-bottom: 18px;
+    }
+
+    /* ================= STATS ================= */
+    .stats {
+      display: flex;
+      gap: 10px;
+    }
+
+    .stat {
+      flex: 1;
+      background: rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 12px 8px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 18px;
+    }
+
+    .stat span {
+      font-size: 11px;
+      opacity: 0.85;
+    }
+
+    /* ================= CONTENT ================= */
+    .content {
+      max-width: 420px;
+      margin: -24px auto 0;
+      background: #fff;
+      border-radius: 28px 28px 0 0;
+      padding: 28px 18px 32px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    /* ================= STORY ================= */
+    .story {
+      display: grid;
+      gap: 10px; /* 기본 카드 간격 */
+    }
+
+    .story-card {
+      background: #f6f7f9;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-size: 14px;
+    }
+
+    /* ===== 대표 이력 카드 ===== */
+    .toggle-card {
+      cursor: pointer;
+    }
+
+    /* 대표 이력 카드만 추가 여백 */
+    .career-card {
+      margin-bottom: 1px; /* ← 여기서 리듬 조절 */
+    }
+
+    .toggle-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .toggle-icon {
+      transition: transform 0.25s ease;
+      color: #666;
+    }
+
+    .career-preview {
+      font-weight: 400;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    .career-full {
+      display: none;
+      margin-top: 10px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .toggle-card.open .career-full {
+      display: block;
+    }
+
+    .toggle-card.open .toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    /* ================= 이력 리스트 ================= */
+    .career-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .career-list li {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .career-label {
+      flex-shrink: 0;
+      min-width: 48px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #666;
+      background: #e9ebef;
+      border-radius: 6px;
+      padding: 2px 6px;
+      text-align: center;
+    }
+
+    /* ================= CLASS ================= */
+    .class-card {
+      border: 1px solid #eee;
+      border-radius: 14px;
+      padding: 14px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    /* ================= CTA ================= */
+    .cta {
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 18px;
+      background: #0e0e12;
+    }
+
+    .cta-primary {
+      width: 100%;
+      padding: 15px;
+      border-radius: 14px;
+      border: none;
+      background: linear-gradient(135deg, #ff8a00, #ff5f2e);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .cta-secondary {
+      width: 100%;
+      background: none;
+      border: none;
+      color: #aaa;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    /* ================= 레슨 스케치 (리사이즈 버전) ================= */
+.sketch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.sketch-grid img,
+.sketch-grid video {
+  width: 100%;
+  height: 110px;              /* 🔑 핵심: 크기 줄이기 */
+  border-radius: 12px;
+  object-fit: cover;
+  background: #000;
+}
+
+/* 영상은 살짝만 강조 (너무 크지 않게) */
+.sketch-grid video {
+  grid-column: span 2;
+  height: 150px;              /* 사진보다만 조금 큼 */
+}
+
+/* 이미지 확대 오버레이 */
+.image-viewer{
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-viewer img{
+  max-width: 92%;
+  max-height: 92%;
+  border-radius: 12px;
+}
+
+/* 사진에 클릭 가능 표시 */
+.sketch-grid img{
+  cursor: zoom-in;
+}
+
+
+.contact-section{
+  max-width: 520px;
+  margin: 0px auto 0;
+  padding: 0;
+  border-radius: 14px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.contact-panel{
+  display: none;
+  padding: 24px 18px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* 흰 영역 연결 마감 */
+.contact-section.open .contact-panel{
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* ================= CONTACT (세로형 / 토글) ================= */
+
+.contact-section{
+  max-width: 420px;     /* content와 정확히 맞춤 */
+  margin: 0 auto;       /* 검정 여백 원인 제거 */
+  padding: 0;           /* 좌우 흔들림 제거 */
+}
+
+.contact-panel{
+  display: none;
+  width: 100%;
+  background: #fff;
+  padding: 22px 18px 24px;
+
+  /* 핵심: 위 흰 영역과 자연스럽게 붙게 */
+  border-radius: 0 0 20px 20px;  /* 위는 각지게, 아래만 둥글게 */
+  box-shadow: none;              /* 카드 뜨는 느낌 제거 */
+  box-sizing: border-box;
+}
+
+.contact-section.open .contact-panel{
+  display: block;
+}
+
+/* 흰 영역 연결 마감 */
+.contact-section.open .contact-panel{
+  margin-top: -1px; /* 1px 겹쳐서 경계선 제거 */
+}
+
+
+/* 제목 */
+.contact-title{
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #111;
+}
+
+/* 서브 문구 */
+.contact-sub{
+  font-size: 13px;
+  color: #888;
+  font-weight: 300;
+  margin: 0 0 14px;
+}
+
+/* 바로 전화하기 */
+.call-btn{
+  display: block;
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 14px;
+  text-align: center;
+  border-radius: 14px;
+  background: #ffd84d;
+  color: #111;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+/* 세로형 폼 */
+.contact-form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  width: 100%;
+  padding: 13px 14px;
+  font-size: 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+  border-color: #ff8a00;
+}
+
+/* SEND 버튼 */
+.contact-submit{
+  margin-top: 6px;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #ff8a00, #ff5f2e);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* 하단 안내 */
+.contact-note{
+  font-size: 11px;
+  color: #777;
+  line-height: 1.4;
+  margin-top: 6px;
+}
+
+/* 상담 문의하기 강조 버튼 */
+.cta-highlight{
+  background: #ffd84d;
+  font-size: 16px;
+  color: #3d3b3b;
+  box-shadow: 0 6px 16px rgba(255, 60, 60, 0.35);
+}
+
+/* 레슨 스케치 전용 */
+.section.sketch {
+  margin-bottom: 0;
+}
+
+  </style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>최주영 CHOI JU YOUNG</h1>
+    <div class="role">Youth Basketball Specialist</div>
+
+    <div class="stats">
+      <div class="stat"><strong>15</strong><span>Years</span></div>
+      <div class="stat"><strong>300+</strong><span>Students</span></div>
+      <div class="stat"><strong>4.9</strong><span>Trust</span></div>
+    </div>
+  </div>
+</section>
+
+<main class="content">
+
+  <section class="section">
+    <div class="section-title">코치 소개</div>
+
+    <div class="story">
+
+      <!-- 대표 이력 -->
+      <div class="story-card toggle-card career-card" onclick="toggleCareer(this)">
+        <div class="toggle-header">
+          <span>코치 대표 이력</span>
+          <span class="toggle-icon">▾</span>
+        </div>
+
+        <div class="career-preview">
+          前 대구 한국 가스공사 페가수스 프로 농구선수 (2022–2026)<br/>
+          前 국군 체육부대 상무 농구단 (2025–2026)
+        </div>
+
+        <div class="career-full">
+          <ul class="career-list">
+            <li style="display: flex; align-items: flex-start;"><span class="career-label" style="margin-right: 4px;">학력</span><span>성균관대학교 스포츠과학 전공</span></li>
+            <li style="display: flex; align-items: flex-start;"><span class="career-label" style="margin-right: 4px;">경력</span><span>前 대구 한국 가스공사 페가수스 프로 농구선수 (2022–2026)<br/>前 국군 체육부대 상무 농구단 (2025–2026)</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="story-card">
+        <strong>WHO I TEACH</strong><br/>
+        초등 · 중등 유소년<br/>
+        입문부터 팀 훈련까지
+      </div>
+
+      <div class="story-card">
+        <strong>HOW I TEACH</strong><br/>
+        안전 · 기본기 · 성장 중심<br/>
+        결과보다 과정을 중시합니다.
+      </div>
+
+    </div>
+  </section>
+  <section class="section">
+  <div class="section-title">개설 가능한 수업</div>
+
+  <div class="class-card">
+    <span>농구기초반 · 50분</span>
+    <strong>100,000원</strong>
+  </div>
+
+  <div class="class-card">
+    <span>농구기술반 · 50분</span>
+    <strong>120,000원</strong>
+  </div>
+
+  <div class="class-card">
+    <span>농구마스터 · 40분</span>
+    <strong>140,000원</strong>
+  </div>
+
+  <div class="class-card">
+    <span>농구대표팀 · 80분</span>
+    <strong>180,000원</strong>
+  </div>
+</section>
+
+</main>
+
+</main>
+
+
+</div>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="contact-panel">
+
+    <a href="tel:031-728-7778" class="call-btn">📞 바로 전화하기</a>
+
+    <h3 class="contact-title">상담 문의</h3>
+    <p class="contact-sub">
+      수업 일정 · 대상 · 레벨 상담을 도와드립니다.
+    </p>
+
+   <!-- ✅ 여기: 구글폼 연동 form -->
+<form class="contact-form" id="contactForm" onsubmit="submitToMultipleForms(event)">
+
+  <!-- 고정값 -->
+  <input type="hidden" name="entry.1676847878" value="최주영">
+  <input type="hidden" name="entry.1115432762" value="농구">
+
+  <!-- 사용자 입력 -->
+  <input type="text" name="entry.1564976340" placeholder="이름" required>
+  <input type="tel"  name="entry.86880590"  placeholder="연락처" pattern="[0-9\-]{10,13}" required>
+  <textarea name="entry.630766365" rows="4" placeholder="문의사항" required></textarea>
+
+<button id="submit-btn" class="contact-submit" type="submit">
+  📧 보내기
+</button>
+
+  <p class="contact-note">
+    This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+  </p>
+</form>
+
+<script>
+function submitToMultipleForms(event) {
+  event.preventDefault();
+
+  const form = document.getElementById('contactForm');
+  const formData = new FormData(form);
+
+  // 연락처 형식 검증
+  var phoneInput = form.elements['entry.86880590'];
+  var phoneDigits = phoneInput.value.replace(/[^0-9]/g, '');
+  if (!/^01\d{8,9}$/.test(phoneDigits)) {
+    alert('연락처를 010-1234-5678 형식으로 입력해주세요.');
+    phoneInput.focus();
+    return false;
+  }
+
+  // Individual instructor form
+  const instructorFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSd1AS73f4Tat0MU8MmpQSHth8lktdOSC4VyMwUgsPJQBRyfQA/formResponse';
+
+  // Master form
+  const masterFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdFI0cYXaQKpgs6qh70bg9hGMmasDliTUOSX3Zs-xBKle8MsA/formResponse';
+
+  // Submit to both forms
+  fetch(instructorFormUrl, { method: 'POST', body: formData, mode: 'no-cors' });
+  fetch(masterFormUrl, { method: 'POST', body: formData, mode: 'no-cors' });
+
+  showSuccess();
+  return false;
+}
+</script>
+
+<p id="success-msg" style="
+  display:none;
+  margin-top:12px;
+  font-size:14px;
+  color:#ff6a00;
+  font-weight:600;
+  text-align:center;
+">
+  문의가 정상적으로 접수되었습니다!<br/>
+  빠르게 연락드릴게요 😊
+</p>
+
+
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+  </div>
+
+<!-- CTA -->
+<div class="cta" id="cta">
+  <button class="cta-primary cta-highlight" onclick="openContact()">
+    ⭐상담 문의하기
+  </button>
+
+  <button class="cta-primary"
+    onclick="location.href='../coach_list/basketball_coach_list.html'">
+    다른 강사 보러가기
+  </button>
+
+  <button class="cta-primary" onclick="location.href='../promotion.html'">신학기 모집/스케줄</button>
+  <button class="cta-primary" onclick="location.href='../index.html'">홈으로 가기</button>
+</div>
+
+
+</section>
+<script src="../js/coaches.js"></script>
+
+
+<!-- 🔍 이미지 확대 뷰어 -->
+<div id="imageViewer" class="image-viewer" onclick="closeImage()">
+  <img id="viewerImg" src="" alt="확대 이미지">
+</div>
+
+
+</body>
+</html>
