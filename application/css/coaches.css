@@ -156,6 +156,15 @@ body{
   border-color:#ff8a00;
 }
 
+/* 개인정보 안내 한 줄 */
+.contact-form .privacy-note{
+  margin:2px 0 0;
+  font-size:12px;
+  line-height:1.5;
+  color:#999;
+  text-align:center;
+}
+
 /* SEND 버튼 */
 .contact-submit{
   margin-top:6px;

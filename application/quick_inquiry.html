@@ -127,6 +127,15 @@
       box-shadow: none;
       transform: none;
     }
+
+    /* 개인정보 안내 한 줄 */
+    .privacy-note {
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #999;
+      text-align: center;
+    }
     .back-link {
       display: block;
       text-align: center;
@@ -235,7 +244,9 @@
       <input class="input-field" id="phone" type="tel" placeholder="010-1234-5678" pattern="[0-9\-]{10,13}" required>
     </div>
 
+
     <button class="submit-btn" id="submitBtn" type="button" data-en="Send Inquiry">문의 보내기</button>
+    <p class="privacy-note" data-en="Your name and phone number are used only to contact you about your inquiry (deleted 1 year after the consultation).">남겨주신 성함과 연락처는 상담 안내에만 사용됩니다(상담 후 1년 후 삭제)</p>
     <a href="index.html" class="back-link" data-en="← Back to Home">← 홈으로 돌아가기</a>
   </div>
 

@@ -380,6 +380,15 @@
 }
 
 /* SEND 버튼 */
+/* 개인정보 안내 한 줄 */
+.contact-form .privacy-note{
+  margin:2px 0 0;
+  font-size:12px;
+  line-height:1.5;
+  color:#999;
+  text-align:center;
+}
+
 .contact-submit{
   margin-top: 6px;
   padding: 14px;
@@ -628,10 +637,7 @@
 <button id="submit-btn" class="contact-submit" type="submit">
   <span data-en="📧 Send">📧 보내기</span>
 </button>
-
-  <p class="contact-note">
-    This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
-  </p>
+      <p class="privacy-note" data-en="Your name and phone number are used only to contact you about your inquiry (deleted 1 year after the consultation).">남겨주신 성함과 연락처는 상담 안내에만 사용됩니다(상담 후 1년 후 삭제)</p>
 </form>
 
 <script>
