@@ -96,18 +96,7 @@
     <div class="countdown"><span id="seconds">10</span><span data-en=" seconds until auto-redirect to home">초 후 자동으로 홈으로 이동합니다</span></div>
   </div>
 
-  <script>
-    var s = 10;
-    var el = document.getElementById('seconds');
-    var t = setInterval(function() {
-      s--;
-      if (el) el.textContent = s;
-      if (s <= 0) {
-        clearInterval(t);
-        location.href = 'index.html';
-      }
-    }, 1000);
-  </script>
+  <script src="js/inquiry-sent.js?v=20260927"></script>
   <script src="../assets/i18n.js?v=20260626d"></script>
 </body>
 </html>

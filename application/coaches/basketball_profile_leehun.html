@@ -521,7 +521,7 @@
     <div class="story">
 
       <!-- 대표 이력 -->
-      <div class="story-card toggle-card career-card" onclick="toggleCareer(this)">
+      <div class="story-card toggle-card career-card" data-action="toggle-career">
         <div class="toggle-header">
           <span data-en="Career Highlights">감독 대표 이력</span>
           <span class="toggle-icon">▾</span>
@@ -592,11 +592,11 @@
   <div class="sketch-grid">
     <img src="../images/coaches/leehun/lee_play_1.jpg"
      alt="농구 레슨 사진 1"
-     onclick="openImage(this.src)">
+     data-action="open-image">
 
     <img src="../images/coaches/leehun/lee_play_2.jpg"
       alt="농구 레슨 사진 2"
-     onclick="openImage(this.src)">
+     data-action="open-image">
 
 
     <video src="../images/coaches/leehun/lee_christmas.mp4" controls playsinline></video>
@@ -623,7 +623,7 @@
     </p>
 
    <!-- ✅ 여기: 구글폼 연동 form -->
-<form class="contact-form" id="contactForm" onsubmit="submitToMultipleForms(event)">
+<form class="contact-form" id="contactForm" data-form-url="https://docs.google.com/forms/d/e/1FAIpQLSd1AS73f4Tat0MU8MmpQSHth8lktdOSC4VyMwUgsPJQBRyfQA/formResponse">
 
   <!-- 고정값 -->
   <input type="hidden" name="entry.1676847878" value="이헌">
@@ -640,36 +640,6 @@
       <p class="privacy-note" data-en="Your name and phone number are used only to contact you about your inquiry (deleted 1 year after the consultation).">남겨주신 성함과 연락처는 상담 안내에만 사용됩니다(상담 후 1년 후 삭제)</p>
 </form>
 
-<script>
-function submitToMultipleForms(event) {
-  event.preventDefault();
-
-  const form = document.getElementById('contactForm');
-  const formData = new FormData(form);
-
-  // 연락처 형식 검증
-  var phoneInput = form.elements['entry.86880590'];
-  var phoneDigits = phoneInput.value.replace(/[^0-9]/g, '');
-  if (!/^01\d{8,9}$/.test(phoneDigits)) {
-    alert('연락처를 010-1234-5678 형식으로 입력해주세요.');
-    phoneInput.focus();
-    return false;
-  }
-
-  // Individual instructor form
-  const instructorFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSd1AS73f4Tat0MU8MmpQSHth8lktdOSC4VyMwUgsPJQBRyfQA/formResponse';
-
-  // Master form
-  const masterFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdFI0cYXaQKpgs6qh70bg9hGMmasDliTUOSX3Zs-xBKle8MsA/formResponse';
-
-  // Submit to both forms
-  fetch(instructorFormUrl, { method: 'POST', body: formData, mode: 'no-cors' });
-  fetch(masterFormUrl, { method: 'POST', body: formData, mode: 'no-cors' });
-
-  showSuccess();
-  return false;
-}
-</script>
 
 <p id="success-msg" style="
   display:none;
@@ -690,26 +660,27 @@ function submitToMultipleForms(event) {
 
 <!-- CTA -->
 <div class="cta" id="cta">
-  <button class="cta-primary cta-highlight" onclick="openContact()">
+  <button class="cta-primary cta-highlight" data-action="open-contact">
     <span data-en="⭐ Make an Inquiry">⭐상담 문의하기</span>
   </button>
 
   <button class="cta-primary"
-    onclick="location.href='../coach_list/basketball_coach_list.html'">
+    data-href="../coach_list/basketball_coach_list.html">
     <span data-en="See Other Coaches">다른 강사 보러가기</span>
   </button>
 
-  <button class="cta-primary" onclick="location.href='../promotion.html'"><span data-en="BALLY JUNIOR Schedule">발리유소년 스케줄</span></button>
-  <button class="cta-primary" onclick="location.href='../index.html'"><span data-en="Back to Home">홈으로 가기</span></button>
+  <button class="cta-primary" data-href="../promotion.html"><span data-en="BALLY JUNIOR Schedule">발리유소년 스케줄</span></button>
+  <button class="cta-primary" data-href="../index.html"><span data-en="Back to Home">홈으로 가기</span></button>
 </div>
 
 
 </section>
-<script src="../js/coaches.js"></script>
+<script src="../js/coaches.js?v=20260927"></script>
+<script src="../js/actions.js?v=20260927"></script>
 
 
 <!-- 🔍 이미지 확대 뷰어 -->
-<div id="imageViewer" class="image-viewer" onclick="closeImage()">
+<div id="imageViewer" class="image-viewer" data-action="close-image">
   <img id="viewerImg" src="" alt="확대 이미지">
 </div>
 

@@ -81,20 +81,21 @@
         if (w.url) { a.target = "_blank"; a.rel = "noopener"; }
         var grad = w.grad || ("linear-gradient(135deg," + (w.gradFrom || "#FF5F14") + "," + (w.gradTo || "#C90404") + ")");
         a.style.setProperty("--grad", grad);
-        var imgHtml = "";
-        if (w.img) {
-          a.classList.add("has-img");
-          imgHtml =
-            '<img class="work-img" src="' + w.img + '" alt="" loading="lazy" ' +
-            "onerror=\"this.closest('.work').classList.remove('has-img');this.remove();\">";
-        }
         a.innerHTML =
-          imgHtml +
           '<span class="work-num">' + (w.num || "") + "</span>" +
           '<div class="work-info">' +
           '<div class="work-cat">' + (w.cat || "") + "</div>" +
           '<div class="work-name" data-en="' + (w.en || "") + '">' + (w.name || "") + "</div>" +
           '<div class="work-go" data-en="View →">소개 보기 →</div></div>';
+        if (w.img) {
+          // 이미지 로딩 실패 시 그라데이션 타일로 되돌림 (inline onerror 대신 JS 바인딩 — CSP 대응)
+          a.classList.add("has-img");
+          var im = document.createElement("img");
+          im.className = "work-img"; im.alt = ""; im.loading = "lazy";
+          im.addEventListener("error", function () { a.classList.remove("has-img"); im.remove(); });
+          im.src = w.img;
+          a.insertBefore(im, a.firstChild);
+        }
         wg.appendChild(a);
         observeReveal(a);
       });

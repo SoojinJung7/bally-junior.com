@@ -36,7 +36,7 @@
   <div class="story">
 
     <!-- 대표 이력 -->
-    <div class="story-card toggle-card career-card" onclick="toggleCareer(this)">
+    <div class="story-card toggle-card career-card" data-action="toggle-career">
       <div class="toggle-header">
         <span>코치 대표 이력</span>
         <span class="toggle-icon">▾</span>
@@ -110,8 +110,8 @@
   <div class="section-title">레슨 스케치</div>
 
   <div class="sketch-grid">
-    <img src="../images/bally-youth.png" onclick="openImage(this.src)">
-    <img src="../images/bally-youth.png" onclick="openImage(this.src)">
+    <img src="../images/bally-youth.png" data-action="open-image">
+    <img src="../images/bally-youth.png" data-action="open-image">
     <video src="../videos/[EDIT].mp4" controls playsinline></video>
   </div>
 </section>
@@ -127,11 +127,9 @@
     <h3 class="contact-title">상담 문의</h3>
     <p class="contact-sub">수업 일정 · 대상 · 레벨 상담</p>
 
-    <form class="contact-form"
-      action="https://docs.google.com/forms/d/e/FORM_ID/formResponse"
-      method="POST"
-      target="hidden_iframe"
-      onsubmit="showSuccess();">
+    <!-- [EDIT] data-form-url 에 강사별 구글폼 formResponse 주소. 전송 로직은 ../js/actions.js -->
+    <form class="contact-form" id="contactForm"
+      data-form-url="https://docs.google.com/forms/d/e/FORM_ID/formResponse">
 
       <!-- [EDIT] 강사 식별. 이후 종목, 강사별로 구분 필요 -->
       <input type="hidden" name="entry.1676847878" value="[EDIT] 강사이름">
@@ -149,20 +147,21 @@
   </div>
 
   <div class="cta">
-    <button class="cta-primary cta-highlight" onclick="openContact()">⭐상담 문의하기</button>
-    <button class="cta-primary" onclick="location.href='../coach_list/[EDIT!종목_coach_list].html'">다른 강사 보러가기</button>
-    <button class="cta-primary" onclick="location.href='/'">홈으로 가기</button>
+    <button class="cta-primary cta-highlight" data-action="open-contact">⭐상담 문의하기</button>
+    <button class="cta-primary" data-href="../coach_list/[EDIT!종목_coach_list].html">다른 강사 보러가기</button>
+    <button class="cta-primary" data-href="/">홈으로 가기</button>
 
   </div>
 </section>  
 
 <!-- 이미지 확대 -->
-<div id="imageViewer" class="image-viewer" onclick="closeImage()">
+<div id="imageViewer" class="image-viewer" data-action="close-image">
   <img id="viewerImg">
 </div>
 
 <!-- 공통 JS -->
-<script src="../js/coaches.js"></script>
+<script src="../js/coaches.js?v=20260927"></script>
+<script src="../js/actions.js?v=20260927"></script>
 
 </body>
 </html>
